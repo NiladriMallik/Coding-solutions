@@ -1,0 +1,11 @@
+SELECT DISTINCT(NUM) AS ConsecutiveNums FROM
+(
+    SELECT
+    ID,
+    NUM,
+    LEAD(NUM, 1) OVER(ORDER BY ID) AS NEXT_ID,
+    LEAD(NUM, 2) OVER(ORDER BY ID) AS NEXT_ID_2
+    FROM LOGS
+    ORDER BY ID
+) e
+where e.NUM = e.NEXT_ID_2 AND e.NUM = e.NEXT_ID;
