@@ -1,3 +1,5 @@
+--PostgreSQL 14
+
 SELECT CUSTOMER_ID FROM
 (
   SELECT
