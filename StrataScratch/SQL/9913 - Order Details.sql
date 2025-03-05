@@ -1,0 +1,9 @@
+SELECT
+    c.FIRST_NAME,
+    o.ORDER_DATE,
+    o.ORDER_DETAILS,
+    o.TOTAL_ORDER_COST
+FROM customers c LEFT JOIN orders o ON c.ID = o.CUST_ID
+WHERE c.FIRST_NAME IN ('Jill', 'Eva')
+ORDER BY c.ID ASC
+;
