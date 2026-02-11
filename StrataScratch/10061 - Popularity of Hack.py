@@ -8,3 +8,20 @@ grouped_df = facebook_employees\
                 .mean()\
                 .reset_index()
 grouped_df.head()
+
+# PySpark
+import pyspark
+from pyspark.sql import functions as F
+
+popularity = facebook_employees.join(
+    facebook_hack_survey,
+    on = facebook_hack_survey['employee_id'] == facebook_employees['id'],
+    how = 'inner'
+)\
+.groupBy('location')\
+.agg(
+    F.mean('popularity').alias('popularity')
+)
+
+
+popularity.toPandas()
