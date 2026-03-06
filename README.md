@@ -1,2 +1,2 @@
 # Summary
-- LeetCode solutions
+Coding solutions
