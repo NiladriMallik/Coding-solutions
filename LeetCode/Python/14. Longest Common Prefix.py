@@ -13,3 +13,22 @@ class Solution:
                 break
         return set_.pop()
         
+
+#################################################################
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        strs.sort()
+        print(strs)
+
+        first = strs[0]
+        last = strs[-1]
+        minLength = min(len(first), len(last))
+
+        i = 0
+
+        # Find the common prefix between the first and last strings
+        while i < minLength and first[i] == last[i]:
+            i += 1
+
+        return first[:i]
